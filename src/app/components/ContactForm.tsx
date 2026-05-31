@@ -18,8 +18,9 @@ export function ContactForm() {
   const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState<'success' | 'error'>('success');
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const newErrors: Record<string, boolean> = {};
 
@@ -35,21 +36,51 @@ export function ContactForm() {
 
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        interest: '',
-        empresa: '',
-        acceptEmail: false,
-        acceptWhatsapp: false,
-      });
-      setMessage('✓ Cadastro recebido. Em breve você receberá nossas novidades.');
-      setIsSubmitting(false);
+    // Prepare form data for Netlify (URL-encoded)
+    const encodedData = new URLSearchParams();
+    encodedData.append('form-name', 'contact');
+    encodedData.append('name', formData.name);
+    encodedData.append('email', formData.email);
+    encodedData.append('phone', formData.phone);
+    encodedData.append('interest', formData.interest);
+    if (formData.empresa) encodedData.append('empresa', formData.empresa);
+    encodedData.append('acceptEmail', formData.acceptEmail ? 'true' : 'false');
+    encodedData.append('acceptWhatsapp', formData.acceptWhatsapp ? 'true' : 'false');
 
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encodedData.toString(),
+      });
+
+      if (response.ok) {
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          interest: '',
+          empresa: '',
+          acceptEmail: false,
+          acceptWhatsapp: false,
+        });
+        setMessageType('success');
+        setMessage('✓ Cadastro recebido. Em breve você receberá nossas novidades.');
+        
+        setTimeout(() => setMessage(''), 5000);
+      } else {
+        setMessageType('error');
+        setMessage('❌ Erro ao enviar o formulário. Tente novamente.');
+        setTimeout(() => setMessage(''), 5000);
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setMessageType('error');
+      setMessage('❌ Erro ao enviar o formulário. Tente novamente.');
       setTimeout(() => setMessage(''), 5000);
-    }, 800);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -82,7 +113,10 @@ export function ContactForm() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-7" data-reveal="right">
+        <form onSubmit={handleSubmit} className="space-y-7" data-reveal="right" name="contact">
+          {/* Hidden input required by Netlify Forms for React/client-side forms */}
+          <input type="hidden" name="form-name" value="contact" />
+
           <div>
             <Label
               htmlFor="name"
@@ -97,6 +131,7 @@ export function ContactForm() {
             </Label>
             <Input
               id="name"
+              name="name"
               type="text"
               placeholder="Seu nome"
               value={formData.name}
@@ -124,6 +159,7 @@ export function ContactForm() {
             </Label>
             <Input
               id="email"
+              name="email"
               type="email"
               placeholder="seu@email.com"
               value={formData.email}
@@ -151,6 +187,7 @@ export function ContactForm() {
             </Label>
             <Input
               id="phone"
+              name="phone"
               type="tel"
               placeholder="(71) 99999-9999"
               value={formData.phone}
@@ -178,6 +215,7 @@ export function ContactForm() {
             </Label>
             <select
               id="interest"
+              name="interest"
               value={formData.interest}
               onChange={(e) =>
                 setFormData({ ...formData, interest: e.target.value })
@@ -221,6 +259,7 @@ export function ContactForm() {
               </Label>
               <Input
                 id="empresa"
+                name="empresa"
                 type="text"
                 placeholder="Nome da sua marca"
                 value={formData.empresa}
@@ -300,7 +339,10 @@ export function ContactForm() {
             {message && (
               <p
                 className="submit-message mt-4 font-semibold"
-                style={{ fontSize: '13px', color: '#2e7d32' }}
+                style={{
+                  fontSize: '13px',
+                  color: messageType === 'success' ? '#2e7d32' : '#d83a22',
+                }}
               >
                 {message}
               </p>
