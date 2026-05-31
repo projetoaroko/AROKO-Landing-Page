@@ -36,22 +36,20 @@ export function ContactForm() {
 
     setIsSubmitting(true);
 
-    // Prepare form data for Netlify (URL-encoded)
-    const encodedData = new URLSearchParams();
-    encodedData.append('form-name', 'contact');
-    encodedData.append('name', formData.name);
-    encodedData.append('email', formData.email);
-    encodedData.append('phone', formData.phone);
-    encodedData.append('interest', formData.interest);
-    if (formData.empresa) encodedData.append('empresa', formData.empresa);
-    encodedData.append('acceptEmail', formData.acceptEmail ? 'true' : 'false');
-    encodedData.append('acceptWhatsapp', formData.acceptWhatsapp ? 'true' : 'false');
+    // Prepare data for Formspree
+    const formDataToSend = new FormData();
+    formDataToSend.append('name', formData.name);
+    formDataToSend.append('email', formData.email);
+    formDataToSend.append('phone', formData.phone);
+    formDataToSend.append('interest', formData.interest);
+    if (formData.empresa) formDataToSend.append('empresa', formData.empresa);
+    formDataToSend.append('acceptEmail', formData.acceptEmail ? 'Sim' : 'Não');
+    formDataToSend.append('acceptWhatsapp', formData.acceptWhatsapp ? 'Sim' : 'Não');
 
     try {
-      const response = await fetch('/', {
+      const response = await fetch('https://formspree.io/f/3014118703156427813', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encodedData.toString(),
+        body: formDataToSend,
       });
 
       if (response.ok) {
@@ -113,10 +111,7 @@ export function ContactForm() {
           </p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-7" data-reveal="right" name="contact">
-          {/* Hidden input required by Netlify Forms for React/client-side forms */}
-          <input type="hidden" name="form-name" value="contact" />
-
+        <form onSubmit={handleSubmit} className="space-y-7" data-reveal="right">
           <div>
             <Label
               htmlFor="name"
