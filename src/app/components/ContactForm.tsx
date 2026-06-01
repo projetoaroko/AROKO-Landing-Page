@@ -1,82 +1,96 @@
-const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-  e.preventDefault();
-  const newErrors: Record<string, boolean> = {};
+import { useState, FormEvent } from 'react';
 
-  if (!formData.name.trim()) newErrors.nome = true;
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = true;
-  if (!formData.phone.trim()) newErrors.whatsapp = true;
-  if (!formData.interest) newErrors.motivo = true;
-  if (!formData.acceptEmail && !formData.acceptWhatsapp) newErrors.termos = true;
+// Certifique-se de que todos os estados necessários estejam aqui dentro
+export const ContactForm = () => {
+  const [formData, setFormData] = useState({ /* ... seus estados iniciais ... */ });
+  const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [message, setMessage] = useState('');
+  const [messageType, setMessageType] = useState<'success' | 'error' | ''>('');
 
-  setErrors(newErrors);
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const newErrors: Record<string, boolean> = {};
 
-  if (Object.keys(newErrors).length > 0) return;
+    if (!formData.name.trim()) newErrors.nome = true;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = true;
+    if (!formData.phone.trim()) newErrors.whatsapp = true;
+    if (!formData.interest) newErrors.motivo = true;
+    if (!formData.acceptEmail && !formData.acceptWhatsapp) newErrors.termos = true;
 
-  setIsSubmitting(true);
+    setErrors(newErrors);
 
-  // Preparação dos dados para o Formspree
-  const formDataToSend = new FormData();
-  formDataToSend.append('_subject', 'Novo cadastro - ÀROKÒ');
-  formDataToSend.append('Nome', formData.name);
-  formDataToSend.append('Email', formData.email);
-  formDataToSend.append('WhatsApp', formData.phone);
+    if (Object.keys(newErrors).length > 0) return;
 
-  formDataToSend.append(
-    'Interesse',
-    {
-      ingresso: 'Quero garantir meu ingresso',
-      imprensa: 'Imprensa / Criador de Conteúdo',
-      marca: 'Patrocínio / Apoio',
-      voluntario: 'Voluntário Backstage',
-    }[formData.interest] || formData.interest
-  );
+    setIsSubmitting(true);
 
-  if (formData.empresa) {
-    formDataToSend.append('Empresa', formData.empresa);
-  }
+    const formDataToSend = new FormData();
+    formDataToSend.append('_subject', 'Novo cadastro - ÀROKÒ');
+    formDataToSend.append('Nome', formData.name);
+    formDataToSend.append('Email', formData.email);
+    formDataToSend.append('WhatsApp', formData.phone);
 
-  formDataToSend.append('Aceita Email', formData.acceptEmail ? 'Sim' : 'Não');
-  formDataToSend.append('Aceita WhatsApp', formData.acceptWhatsapp ? 'Sim' : 'Não');
+    formDataToSend.append(
+      'Interesse',
+      {
+        ingresso: 'Quero garantir meu ingresso',
+        imprensa: 'Imprensa / Criador de Conteúdo',
+        marca: 'Patrocínio / Apoio',
+        voluntario: 'Voluntário Backstage',
+      }[formData.interest] || formData.interest
+    );
 
-  try {
-    const response = await fetch('https://formspree.io/f/xeedbeok', {
-      method: 'POST',
-      body: formDataToSend,
-      headers: {
-        'Accept': 'application/json',
-      },
-    });
+    if (formData.empresa) {
+      formDataToSend.append('Empresa', formData.empresa);
+    }
 
-    if (response.ok) {
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        interest: '',
-        empresa: '',
-        acceptEmail: false,
-        acceptWhatsapp: false,
+    formDataToSend.append('Aceita Email', formData.acceptEmail ? 'Sim' : 'Não');
+    formDataToSend.append('Aceita WhatsApp', formData.acceptWhatsapp ? 'Sim' : 'Não');
+
+    try {
+      const response = await fetch('https://formspree.io/f/xeedbeok', {
+        method: 'POST',
+        body: formDataToSend,
+        headers: {
+          'Accept': 'application/json',
+        },
       });
 
-      setErrors({});
-      setMessageType('success');
-      setMessage('✓ Cadastro recebido. Em breve você receberá nossas novidades.');
-    } else {
-      const data = await response.json();
-      console.error('Formspree error:', data);
+      if (response.ok) {
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          interest: '',
+          empresa: '',
+          acceptEmail: false,
+          acceptWhatsapp: false,
+        });
 
+        setErrors({});
+        setMessageType('success');
+        setMessage('✓ Cadastro recebido. Em breve você receberá nossas novidades.');
+      } else {
+        const data = await response.json();
+        console.error('Formspree error:', data);
+        setMessageType('error');
+        setMessage(data?.errors?.[0]?.message || '❌ Erro ao enviar o formulário.');
+      }
+    } catch (error) {
+      console.error('Form submission error:', error);
       setMessageType('error');
-      setMessage(
-        data?.errors?.[0]?.message ||
-        '❌ Erro ao enviar o formulário.'
-      );
+      setMessage('❌ Erro ao enviar o formulário. Tente novamente.');
+    } finally {
+      setIsSubmitting(false);
     }
-  } catch (error) {
-    console.error('Form submission error:', error);
+  };
 
-    setMessageType('error');
-    setMessage('❌ Erro ao enviar o formulário. Tente novamente.');
-  } finally {
-    setIsSubmitting(false);
-  }
+  return (
+    <section>
+      {/* Aqui vai o seu formulário chamando o handleSubmit no onSubmit */}
+      <form onSubmit={handleSubmit}>
+        {/* ... inputs ... */}
+      </form>
+    </section>
+  );
 };
