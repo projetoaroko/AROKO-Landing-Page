@@ -88,17 +88,46 @@ export const ContactForm = () => {
     }
   };
 
-  return (
-    <section>
-      <h2>Entre em contato</h2>
-      <form onSubmit={handleSubmit}>
-        {/* Aqui você deve colocar os seus inputs. 
-            Certifique-se de que eles atualizam o estado 'formData'. */}
-        <p>{message}</p>
-        <button type="submit" disabled={isSubmitting}>
+ return (
+    <section className="p-8">
+      <h2 className="text-2xl font-bold mb-4">Entre em contato</h2>
+      
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+        <input 
+          type="text" 
+          placeholder="Nome" 
+          value={formData.name} 
+          onChange={(e) => setFormData({...formData, name: e.target.value})}
+          className="border p-2"
+        />
+        
+        <input 
+          type="email" 
+          placeholder="Email" 
+          value={formData.email} 
+          onChange={(e) => setFormData({...formData, email: e.target.value})}
+          className="border p-2"
+        />
+
+        <input 
+          type="text" 
+          placeholder="WhatsApp" 
+          value={formData.phone} 
+          onChange={(e) => setFormData({...formData, phone: e.target.value})}
+          className="border p-2"
+        />
+
+        <button 
+          type="submit" 
+          disabled={isSubmitting}
+          className="bg-black text-white p-2 rounded"
+        >
           {isSubmitting ? 'Enviando...' : 'Enviar'}
         </button>
       </form>
+
+      {message && <p className="mt-4">{message}</p>}
     </section>
+  );
   );
 };
