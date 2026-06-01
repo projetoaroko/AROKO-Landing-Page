@@ -1,4 +1,4 @@
-import { motion } from 'motion/react';
+import { motion } from 'framer-motion';
 import { useState, FormEvent } from 'react';
 import { Input } from './ui/input';
 import { Label } from './ui/label';
