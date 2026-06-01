@@ -1,9 +1,17 @@
 import { useState, FormEvent } from 'react';
 
-// Certifique-se de que todos os estados necessários estejam aqui dentro
 export const ContactForm = () => {
-  const [formData, setFormData] = useState({ /* ... seus estados iniciais ... */ });
-  const [errors, setErrors] = useState({});
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    interest: '',
+    empresa: '',
+    acceptEmail: false,
+    acceptWhatsapp: false,
+  });
+  
+  const [errors, setErrors] = useState<Record<string, boolean>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState('');
   const [messageType, setMessageType] = useState<'success' | 'error' | ''>('');
@@ -51,9 +59,7 @@ export const ContactForm = () => {
       const response = await fetch('https://formspree.io/f/xeedbeok', {
         method: 'POST',
         body: formDataToSend,
-        headers: {
-          'Accept': 'application/json',
-        },
+        headers: { 'Accept': 'application/json' },
       });
 
       if (response.ok) {
@@ -66,18 +72,15 @@ export const ContactForm = () => {
           acceptEmail: false,
           acceptWhatsapp: false,
         });
-
         setErrors({});
         setMessageType('success');
         setMessage('✓ Cadastro recebido. Em breve você receberá nossas novidades.');
       } else {
         const data = await response.json();
-        console.error('Formspree error:', data);
         setMessageType('error');
         setMessage(data?.errors?.[0]?.message || '❌ Erro ao enviar o formulário.');
       }
     } catch (error) {
-      console.error('Form submission error:', error);
       setMessageType('error');
       setMessage('❌ Erro ao enviar o formulário. Tente novamente.');
     } finally {
@@ -87,9 +90,14 @@ export const ContactForm = () => {
 
   return (
     <section>
-      {/* Aqui vai o seu formulário chamando o handleSubmit no onSubmit */}
+      <h2>Entre em contato</h2>
       <form onSubmit={handleSubmit}>
-        {/* ... inputs ... */}
+        {/* Aqui você deve colocar os seus inputs. 
+            Certifique-se de que eles atualizam o estado 'formData'. */}
+        <p>{message}</p>
+        <button type="submit" disabled={isSubmitting}>
+          {isSubmitting ? 'Enviando...' : 'Enviar'}
+        </button>
       </form>
     </section>
   );
