@@ -129,5 +129,4 @@ export const ContactForm = () => {
       {message && <p className="mt-4">{message}</p>}
     </section>
   );
-  );
 };
