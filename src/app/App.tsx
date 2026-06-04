@@ -2,8 +2,8 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Ticker } from './components/Ticker';
 import { Conceito } from './components/Conceito';
-import { Desfile } from './components/Desfile';
 import { TicketWidget } from './components/TicketWidget';
+import { Desfile } from './components/Desfile';
 import { ContactForm } from './components/ContactForm';
 import { Idealizadora } from './components/Idealizadora';
 import { Apoiadores } from './components/Apoiadores';
@@ -16,12 +16,12 @@ export default function App() {
   return (
     <div className="w-full">
       <Navbar />
+      <TicketWidget />
       <main>
         <Hero />
         <Ticker />
         <Conceito />
         <Desfile />
-        <TicketWidget />
         <ContactForm />
         <Idealizadora />
         <Apoiadores />
