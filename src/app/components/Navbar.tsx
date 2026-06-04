@@ -40,7 +40,7 @@ export function Navbar() {
           ))}
         </div>
         <a
-          href="https://shotgun.live/festivals/aroko-mostra-de-moda-afro-soteropolitana"
+          href="https://shotgun.live/events/aroko-mostra-de-moda-afro-soteropolitana?utm_source=lp"
           target="_blank"
           rel="noopener noreferrer"
           className="text-[10px] uppercase font-bold bg-white text-[#0f0f0f] px-5 py-2.5 hover:bg-[#d83a22] hover:text-white transition-all duration-300 animate-pulse-subtle relative overflow-hidden"
