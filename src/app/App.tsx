@@ -3,6 +3,7 @@ import { Hero } from './components/Hero';
 import { Ticker } from './components/Ticker';
 import { Conceito } from './components/Conceito';
 import { Desfile } from './components/Desfile';
+import { TicketWidget } from './components/TicketWidget';
 import { ContactForm } from './components/ContactForm';
 import { Idealizadora } from './components/Idealizadora';
 import { Apoiadores } from './components/Apoiadores';
@@ -20,6 +21,7 @@ export default function App() {
         <Ticker />
         <Conceito />
         <Desfile />
+        <TicketWidget />
         <ContactForm />
         <Idealizadora />
         <Apoiadores />
