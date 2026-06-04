@@ -1,6 +1,8 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export function TicketWidget() {
+  const [isOpen, setIsOpen] = useState(true);
+
   useEffect(() => {
     // Load the Shotgun widget script
     const script = document.createElement('script');
@@ -10,42 +12,41 @@ export function TicketWidget() {
   }, []);
 
   return (
-    <section id="ingressos" className="w-full bg-[#fbfaf7] py-20 md:py-28">
-      <div className="max-w-[1200px] mx-auto px-6 md:px-8">
-        <h2
-          className="font-black uppercase text-[#1B1B1B] mb-4"
-          data-reveal="up"
-          style={{
-            fontSize: 'clamp(3.5rem, 9vw, 8rem)',
-            letterSpacing: '0',
-            lineHeight: 0.88,
-          }}
-        >
-          Ingressos
-        </h2>
-        <p
-          className="text-[#5f5951] mb-14"
-          data-reveal="up"
-          style={{ fontSize: '16px' }}
-        >
-          Garanta seu lugar na passarela. Compre seus ingressos agora.
-        </p>
+    <>
+      {isOpen && (
+        <div className="fixed right-6 bottom-6 md:right-10 md:bottom-10 z-40 animate-in fade-in slide-in-from-bottom-5">
+          <div className="bg-white rounded-lg shadow-2xl overflow-hidden border border-[#D9D4CC]">
+            {/* Header */}
+            <div className="bg-[#1B1B1B] text-white px-4 py-3 flex items-center justify-between">
+              <h3 className="font-bold text-sm uppercase" style={{ letterSpacing: '.08em' }}>
+                Ingressos
+              </h3>
+              <button
+                onClick={() => setIsOpen(false)}
+                className="text-white hover:text-[#d83a22] transition-colors"
+                aria-label="Fechar"
+              >
+                ✕
+              </button>
+            </div>
 
-        <div className="flex justify-center" data-reveal="up">
-          <iframe
-            src="https://shotgun.live/events/aroko-mostra-de-moda-afro-soteropolitana?embedded=1&ui=dark&transparentBackground=1"
-            allow="payment"
-            style={{
-              width: '100%',
-              height: '800px',
-              maxHeight: 'calc(100vh - 200px)',
-              border: '0',
-              colorScheme: 'none',
-            }}
-            title="ÀROKÒ - Tickets"
-          />
+            {/* Widget Container */}
+            <div className="w-80 h-96 overflow-hidden">
+              <iframe
+                src="https://shotgun.live/events/aroko-mostra-de-moda-afro-soteropolitana?embedded=1&ui=dark&transparentBackground=1"
+                allow="payment"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  border: '0',
+                  colorScheme: 'none',
+                }}
+                title="ÀROKÒ - Tickets"
+              />
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      )}
+    </>
   );
 }
