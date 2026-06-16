@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ÀROKÒ | Mostra de Moda Afro-Soteropolitana</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,400;0,500;0,700;0,800;0,900;1,400;1,500&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #1B1B1B;
+      --bone: #FBFAF7;
+      --warm: #F1EEE8;
+      --dende: #D83A22;
+      --muted: #77716A;
+      --line: #D9D4CC;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Epilogue', sans-serif;
+      color: var(--ink);
+      background: var(--bone);
+    }
+    .mono { font-family: 'Space Grotesk', sans-serif; }
+
+    /* Nav link */
+    .nav-link {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: rgba(255,255,255,.6);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-link:hover { color: #fff; }
+
+    /* Fade up */
+    .fade-up { animation: fadeUp .9s cubic-bezier(.2,.65,.2,1) both; }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Ticker */
+    .ticker-wrap { overflow: hidden; white-space: nowrap; }
+    .ticker-track { display: inline-block; animation: ticker 30s linear infinite; }
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* Form inputs */
+    .form-input {
+      width: 100%;
+      border: 0;
+      border-bottom: 1.5px solid var(--ink);
+      background: transparent;
+      padding: 14px 0 12px;
+      outline: none;
+      font-size: 14px;
+      color: var(--ink);
+      font-family: 'Epilogue', sans-serif;
+      appearance: none;
+    }
+    .form-input::placeholder { color: #aaa5a0; font-size: 13px; }
+    .form-input:focus { border-color: var(--dende); }
+    select.form-input { cursor: pointer; }
+    select.form-input option { background: #fff; color: var(--ink); }
+
+    /* Lock line */
+    .lock-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1.5px solid var(--ink);
+      padding-bottom: 10px;
+      margin-top: 14px;
+    }
+    .lock-dashes {
+      flex: 1;
+      height: 1px;
+      background: repeating-linear-gradient(90deg, var(--ink) 0, var(--ink) 4px, transparent 4px, transparent 8px);
+      margin: 0 10px;
+    }
+
+    /* Sponsor cell */
+    .logo-cell {
+      border: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #b0a99f;
+      transition: border-color .25s, color .25s;
+    }
+    .logo-cell:hover { border-color: #aaa; color: var(--ink); }
+  </style>
+</head>
+<body class="w-full">
+
+  <!-- ══ FIXED NAV ══════════════════════════════════════════ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 bg-[#0f0f0f]" style="border-bottom:1px solid rgba(255,255,255,.08);">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-8 flex items-center justify-between" style="height:52px;">
+      <a href="#" class="font-black uppercase text-white" style="font-size:18px;letter-spacing:-0.03em;">ÀROKÒ</a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#conceito"  class="nav-link">Conceito</a>
+        <a href="#mostra"    class="nav-link">ESTILISTAS</a>
+        <a href="https://instagram.com/projetoaroko" target="_blank" rel="noopener noreferrer" class="nav-link">Instagram</a>
+        <a href="#imprensa"  class="nav-link">Fale Conosco</a>
+      </div>
+      <a href="https://shotgun.live/festivals/aroko-mostra-de-moda-afro-soteropolitana" target="_blank" rel="noopener noreferrer"
+         class="mono text-[10px] uppercase tracking-[0.14em] font-bold bg-white text-[#0f0f0f] px-5 py-2.5 hover:bg-[#d83a22] hover:text-white transition-colors">
+        INGRESSOS
+      </a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ══ HERO ═══════════════════════════════════════════════ -->
+    <section class="relative flex flex-col justify-end overflow-hidden" style="min-height:100svh;padding-top:52px;">
+      <!-- BG photo -->
+      <img loading="eager"
+           class="absolute inset-0 w-full h-full object-cover grayscale"
+           src="aroko-mostra-passarela-vestidos-coloridos.jpg"
+           alt="ÀROKÒ" />
+      <!-- Gradient -->
+      <div class="absolute inset-0" style="background:linear-gradient(to top,rgba(0,0,0,.92) 0%,rgba(0,0,0,.35) 45%,rgba(0,0,0,.15) 100%);"></div>
+
+      <!-- Content -->
+      <div class="relative z-10 max-w-[1200px] mx-auto px-6 md:px-8 w-full pb-14 flex items-end justify-between gap-8 flex-wrap">
+        <div class="flex items-end gap-4">
+          <!-- Red accent bar -->
+          <div style="width:3px;height:72px;background:#d83a22;margin-bottom:6px;flex-shrink:0;"></div>
+          <div>
+            <h1 class="fade-up font-black uppercase text-white" style="font-size:clamp(60px,11vw,136px);letter-spacing:-0.055em;line-height:0.85;">
+              ÀROKÒ
+            </h1>
+            <p class="text-white/60 italic mt-3" style="font-size:clamp(14px,1.5vw,18px);letter-spacing:.06em;">
+              MOSTRA DE MODA AFRO-SOTEROPOLITANA
+            </p>
+          </div>
+        </div>
+        <div class="text-right">
+          <p class="font-black text-white uppercase" style="font-size:clamp(22px,4vw,48px);line-height:1;letter-spacing:-0.03em;">
+            20 de Agosto<br>
+            <span class="text-[#d83a22]" style="font-size:clamp(18px,3vw,32px);">Em Salvador</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TICKER ══════════════════════════════════════════════ -->
+    <div class="ticker-wrap bg-[#d83a22] py-[11px]">
+      <div class="ticker-track">
+        <span class="mono font-bold text-white px-6" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;">
+          SALVADOR · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 · SALVADOR · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 · SALVADOR · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 · SALVADOR · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 ·&nbsp;
+        </span>
+        <span class="mono font-bold text-white px-6" style="font-size:11px;letter-spacing:.18em;text-transform:uppercase;">
+          SALVADOR · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 · SALVADOR · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 · SALVADOR · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 · SALVADOR · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 ·&nbsp;
+        </span>
+      </div>
+    </div>
+
+
+    <!-- ══ CONCEITO ════════════════════════════════════════════ -->
+    <section id="conceito" class="w-full bg-[#1B1B1B] text-white py-24 md:py-36">
+      <div class="max-w-[860px] mx-auto px-6 md:px-8 text-center">
+
+        <p class="mono font-bold text-[#d83a22] mb-10 uppercase" style="font-size:10px;letter-spacing:.26em;">
+          Corpos que guiam a nossa narrativa.
+        </p>
+
+        <h2 class="font-extrabold uppercase text-white" style="font-size:clamp(1.9rem,4.8vw,3.8rem);line-height:1.05;letter-spacing:-.01em;">
+          Um gesto ancestral transformado em linguagem de moda.
+        </h2>
+
+        <div class="grid md:grid-cols-2 gap-8 md:gap-14 mt-14 text-left leading-7 text-[#C9C3BB]" style="font-size:14px;">
+          <p>Na tradição Yorùbá, Àrokò é um sistema de comunicação não verbal onde objetos e arranjos transmitem mensagens, emoções e diretrizes. Nós trouxemos essa tecnologia ancestral para o agora. Na nossa passarela, o vestuário, os corpos e os movimentos assumem esse papel de comunicação. Eles funcionam como signos intencionais da nossa identidade, da nossa ancestralidade e do nosso território afro-soteropolitano.</p>
+          <p>A lógica do mercado tradicional historicamente tenta nos apagar. O ÀROKÒ rompe com essa objetificação histórica. Nós garantimos que os criadores negros locais sejam os protagonistas absolutos das suas próprias narrativas. Conectamos a herança afro-diaspórica de Salvador com o design contemporâneo para proteger e perpetuar a memória da Bahia.</p>
+        </div>
+
+        <p class="font-extrabold uppercase text-white mt-16" style="font-size:clamp(1rem,2vw,1.5rem);letter-spacing:.12em;">
+          A nossa passarela se converte em um manifesto vivo.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- ══ NOSSO DESFILE ═══════════════════════════════════════════ -->
+    <section id="mostra" class="w-full bg-[#fbfaf7] py-20 md:py-28">
+      <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+
+        <h2 class="font-black uppercase text-[#1B1B1B] mb-4"
+            style="font-size:clamp(3.5rem,9vw,8rem);letter-spacing:-.05em;line-height:.88;">
+          Nosso desfile
+        </h2>
+        <p class="text-[#5f5951] mb-14" style="font-size:16px;">
+          O desfile integra moda, dança afro-contemporânea e performance narrativa.
+        </p>
+
+        <!-- Cards -->
+        <div class="grid md:grid-cols-3 gap-6 md:gap-10">
+
+          <!-- Card 01 -->
+          <div>
+            <div class="aspect-[4/5] bg-[#E8E4DE] flex items-center justify-center overflow-hidden">
+              <img src="aroko-passarela-modelos-costas-abraco.jpg" alt="Estilista A" class="w-full h-full object-cover" />
+            </div>
+            <div class="lock-row mt-4">
+              <p class="mono font-bold uppercase text-[#1B1B1B]" style="font-size:10px;letter-spacing:.16em;">Estilista A</p>
+              <div class="lock-dashes"></div>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1B1B1B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 02 -->
+          <div class="md:mt-16">
+            <div class="aspect-[4/5] bg-[#E8E4DE] flex items-center justify-center overflow-hidden">
+              <img src="aroko-croquis-ilustracao-colecao.jpg" alt="Estilista B" class="w-full h-full object-cover" />
+            </div>
+            <div class="lock-row mt-4">
+              <p class="mono font-bold uppercase text-[#1B1B1B]" style="font-size:10px;letter-spacing:.16em;">Estilista B</p>
+              <div class="lock-dashes"></div>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1B1B1B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Card 03 -->
+          <div>
+            <div class="aspect-[4/5] bg-[#E8E4DE] flex items-center justify-center overflow-hidden">
+              <img src="aroko-passarela-detalhe-terno-branco.jpg" alt="Estilista C" class="w-full h-full object-cover" />
+            </div>
+            <div class="lock-row mt-4">
+              <p class="mono font-bold uppercase text-[#1B1B1B]" style="font-size:10px;letter-spacing:.16em;">Estilista C</p>
+              <div class="lock-dashes"></div>
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#1B1B1B" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;">
+                <rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- CTA line -->
+        <div class="mt-14 pt-6 flex items-center justify-between flex-wrap gap-4" style="border-top:1px solid var(--line);">
+          <p class="mono text-[#77716A] uppercase" style="font-size:10px;letter-spacing:.18em;">Cadastre-se para ser o primeiro a saber</p>
+          <a href="#formulario" class="mono font-bold uppercase text-[#1B1B1B] hover:text-[#d83a22] transition-colors" style="font-size:11px;letter-spacing:.15em;">
+            Quero ser avisado →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══ FORMULÁRIO ══════════════════════════════════════════ -->
+    <section id="formulario" class="w-full bg-[#fbfaf7] py-20 md:py-28" style="border-top:1px solid var(--line);">
+      <div class="max-w-[1200px] mx-auto px-6 md:px-8 grid lg:grid-cols-[1fr_1.6fr] gap-12 lg:gap-24 items-start">
+
+        <!-- Left -->
+        <div class="lg:sticky" style="top:80px;">
+          <h2 class="font-extrabold uppercase text-[#1B1B1B]" style="font-size:clamp(2.2rem,4vw,3.2rem);line-height:.96;letter-spacing:-.02em;">
+            A passarela abre<br>primeiro para você!
+          </h2>
+          <p class="mt-6 leading-7 text-[#5f5951]" style="font-size:14px;max-width:320px;">
+            Cadastre-se para receber os lançamentos de ingressos em primeira mão e acompanhar de perto as marcas que estão redefinindo a moda afro-soteropolitana.
+          </p>
+        </div>
+
+        <!-- Form -->
+        <form id="interest-form" class="space-y-7" novalidate>
+
+          <div>
+            <label for="name" class="mono font-bold uppercase" style="font-size:10px;letter-spacing:.18em;">Nome Completo *</label>
+            <input id="name" name="name" type="text" class="form-input" placeholder="Seu nome" required />
+            <p class="text-[#d83a22] hidden mt-1" id="err-nome" style="font-size:12px;">Nome é obrigatório.</p>
+          </div>
+
+          <div>
+            <label for="email" class="mono font-bold uppercase" style="font-size:10px;letter-spacing:.18em;">E-mail *</label>
+            <input id="email" name="email" type="email" class="form-input" placeholder="seu@email.com" required />
+            <p class="text-[#d83a22] hidden mt-1" id="err-email" style="font-size:12px;">E-mail inválido.</p>
+          </div>
+
+          <div>
+            <label for="phone" class="mono font-bold uppercase" style="font-size:10px;letter-spacing:.18em;">WhatsApp *</label>
+            <input id="phone" name="phone" type="tel" class="form-input" placeholder="(71) 99999-9999" required />
+            <p class="text-[#d83a22] hidden mt-1" id="err-whatsapp" style="font-size:12px;">WhatsApp é obrigatório.</p>
+          </div>
+
+          <div>
+            <label for="interest" class="mono font-bold uppercase" style="font-size:10px;letter-spacing:.18em;">Qual o motivo de interesse? *</label>
+            <select id="interest" name="interest" class="form-input" required>
+              <option value="" selected disabled>Selecione uma opção</option>
+              <option value="ingresso">Quero garantir meu ingresso</option>
+              <option value="imprensa">Sou da Imprensa / Criador de Conteúdo</option>
+              <option value="marca">Represento uma marca e quero patrocinar/apoiar</option>
+              <option value="voluntario">Quero ser voluntário no Backstage</option>
+            </select>
+            <p class="text-[#d83a22] hidden mt-1" id="err-motivo" style="font-size:12px;">Selecione uma opção.</p>
+          </div>
+
+          <div id="empresa-field" class="hidden">
+            <label for="empresa" class="mono font-bold uppercase" style="font-size:10px;letter-spacing:.18em;">Nome da Empresa/Marca</label>
+            <input id="empresa" name="empresa" type="text" class="form-input" placeholder="Nome da sua marca" />
+          </div>
+
+          <!-- Termos -->
+          <div class="space-y-3 pt-1" style="border-top:1px solid var(--line);padding-top:16px;">
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input id="accept-email" type="checkbox" class="mt-0.5 accent-[#1B1B1B]" style="margin-top:3px;" />
+              <span class="text-[#5f5951] leading-5" style="font-size:13px;">
+                Aceito receber novidades, informações sobre ingressos e conteúdos exclusivos do <strong class="text-[#1B1B1B]">ÀROKÒ</strong> por <strong class="text-[#1B1B1B]">e-mail</strong>.
+              </span>
+            </label>
+            <label class="flex items-start gap-3 cursor-pointer">
+              <input id="accept-whatsapp" type="checkbox" class="mt-0.5 accent-[#1B1B1B]" style="margin-top:3px;" />
+              <span class="text-[#5f5951] leading-5" style="font-size:13px;">
+                Aceito receber comunicações do <strong class="text-[#1B1B1B]">ÀROKÒ</strong> via <strong class="text-[#1B1B1B]">WhatsApp</strong>.
+              </span>
+            </label>
+            <p class="text-[#d83a22] hidden" id="err-termos" style="font-size:12px;">Aceite pelo menos um canal para continuar.</p>
+          </div>
+
+          <div>
+            <button id="submit-btn" type="submit"
+                    class="w-full bg-[#1B1B1B] text-white py-5 mono font-bold uppercase hover:bg-[#d83a22] transition-colors"
+                    style="font-size:10px;letter-spacing:.18em;">
+              Quero receber as novidades em primeira mão
+            </button>
+            <p id="form-message" class="mt-4 text-[#5f5951]" style="font-size:13px;min-height:20px;" aria-live="polite"></p>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+
+    <!-- ══ IDEALIZAÇÃO ═════════════════════════════════════════ -->
+    <section class="w-full bg-[#f1eee8] py-20 md:py-28">
+      <div class="max-w-[1200px] mx-auto px-6 md:px-8 grid lg:grid-cols-[1fr_1fr] gap-10 lg:gap-16 items-start">
+
+        <!-- Text - left -->
+        <div>
+          <h2 class="font-extrabold uppercase text-[#1B1B1B] mb-10"
+              style="font-size:clamp(1.8rem,3.5vw,3rem);line-height:1.04;letter-spacing:-.01em;">
+            A idealizadora<br>por trás do gesto.
+          </h2>
+
+          <p class="leading-7 text-[#4c4742]" style="font-size:14px;">
+            Maria Eduarda Gomes, prestes a concluir sua graduação em Relações Públicas pela Universidade do Estado da Bahia (UNEB), tem na moda a sua primeira e mais instintiva forma de expressão. Com forte atuação nas áreas de comunicação, design gráfico, marketing e produção de eventos em Salvador, o que começou como um fascínio de infância amadureceu ao longo de sua trajetória acadêmica.
+          </p>
+          <p class="leading-7 text-[#4c4742] mt-5" style="font-size:14px;">
+            A mostra ÀROKÒ, idealizada como seu projeto de graduação, é a materialização de suas vivências como mulher afrodescendente em Salvador e da convicção de que a moda autoral local carece de uma vitrine própria. Através do evento, ela busca dar protagonismo aos criadores pretos da cidade, celebrando a forma como codificam e transmitem suas múltiplas vivências, demarcações territoriais e heranças ancestrais.
+          </p>
+
+          <div class="mt-10 pt-6" style="border-top:1px solid rgba(27,27,27,.15);">
+            <p class="font-bold uppercase text-[#1B1B1B]" style="font-size:14px;">Maria Eduarda Gomes</p>
+            <p class="mono text-[#6f685f] mt-1.5 uppercase" style="font-size:10px;letter-spacing:.18em;">Idealizadora &amp; Produtora Cultural</p>
+            <p class="mono text-[#6f685f] mt-5 uppercase" style="font-size:10px;letter-spacing:.14em;">Projeto com o selo de Relações Públicas da UNEB</p>
+          </div>
+        </div>
+
+        <!-- Photo - right -->
+        <div class="overflow-hidden">
+          <img loading="lazy"
+               class="w-full object-cover grayscale"
+               style="min-height:500px;"
+               src="Maria-Eduarda-Gomes-Silva-Salvador.jpg"
+               alt="Maria Eduarda Gomes" />
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══ APOIADORES ══════════════════════════════════════════ -->
+    <section class="w-full bg-[#fbfaf7] py-20 md:py-28">
+      <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+
+        <p class="text-center mono text-[#77716A] uppercase mb-14" style="font-size:10px;letter-spacing:.3em;">
+          Marcas que caminham junto
+        </p>
+
+        <!-- Master -->
+        <div class="mb-2">
+          <p class="mono text-[#77716A] uppercase mb-3" style="font-size:9px;letter-spacing:.22em;">Master</p>
+          <div class="logo-cell py-14 text-2xl" style="width:100%;">Logo</div>
+        </div>
+
+        <!-- Spacer -->
+        <div class="my-8"></div>
+
+        <!-- Patrocinadores -->
+        <div class="mb-2">
+          <p class="mono text-[#77716A] uppercase mb-3" style="font-size:9px;letter-spacing:.22em;">Patrocinadores</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-2">
+            <div class="logo-cell py-10" style="font-size:14px;">Logo</div>
+            <div class="logo-cell py-10" style="font-size:14px;">Logo</div>
+            <div class="logo-cell py-10" style="font-size:14px;">Logo</div>
+            <div class="logo-cell py-10" style="font-size:14px;">Logo</div>
+          </div>
+        </div>
+
+        <!-- Spacer -->
+        <div class="my-8"></div>
+
+        <!-- Apoio -->
+        <div>
+          <p class="mono text-[#77716A] uppercase mb-3" style="font-size:9px;letter-spacing:.22em;">Apoio</p>
+          <div class="grid grid-cols-2 md:grid-cols-5 gap-2">
+            <div class="logo-cell py-7" style="font-size:12px;">Logo</div>
+            <div class="logo-cell py-7" style="font-size:12px;">Logo</div>
+            <div class="logo-cell py-7" style="font-size:12px;">Logo</div>
+            <div class="logo-cell py-7" style="font-size:12px;">Logo</div>
+            <div class="logo-cell py-7 col-span-2 md:col-span-1" style="font-size:12px;">Logo</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══ ASSINE ESTE MANIFESTO ════════════════════════════════ -->
+    <section id="imprensa" class="w-full bg-[#1B1B1B] text-white py-20 md:py-28">
+      <div class="max-w-[1200px] mx-auto px-6 md:px-8 grid md:grid-cols-[1fr_auto] gap-10 items-end">
+        <div>
+          <h2 class="font-extrabold uppercase text-white"
+              style="font-size:clamp(2.5rem,5.5vw,4.5rem);line-height:.96;letter-spacing:-.02em;">
+            Assine Este<br>Manifesto.
+          </h2>
+          <p class="mt-6 text-white/55 leading-7 max-w-xl" style="font-size:14px;">
+            Nós estamos moldando o futuro da moda em Salvador. Associe a sua empresa à força criativa da juventude negra e caminhe lado a lado com quem constrói a identidade da cidade. Entre em contato para receber a nossa proposta.
+          </p>
+        </div>
+        <a href="mailto:projetoaroko@gmail.com"
+           class="mono font-bold uppercase text-white hover:text-[#d83a22] transition-colors whitespace-nowrap"
+           style="font-size:10px;letter-spacing:.16em;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:6px;">
+          Fale conosco →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════ -->
+  <footer class="w-full bg-[#0f0f0f] text-white py-8">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-8 flex flex-col md:flex-row md:items-center justify-between gap-6">
+
+      <p class="font-black uppercase text-white" style="font-size:20px;letter-spacing:-.03em;">ÀROKÒ</p>
+
+      <div class="flex items-center gap-5">
+        <a href="https://instagram.com/projetoaroko" target="_blank" rel="noopener noreferrer"
+           class="text-white/45 hover:text-white transition-colors" aria-label="Instagram">
+          <svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+          </svg>
+        </a>
+        <a href="https://twitter.com/projetoaroko" target="_blank" rel="noopener noreferrer"
+           class="text-white/45 hover:text-white transition-colors" aria-label="X">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <a href="https://tiktok.com/@projetoaroko" target="_blank" rel="noopener noreferrer"
+           class="text-white/45 hover:text-white transition-colors" aria-label="TikTok">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
+          </svg>
+        </a>
+      </div>
+
+      <div class="flex flex-col md:text-right gap-1.5">
+        <p class="mono text-white/40 uppercase" style="font-size:9px;letter-spacing:.18em;">Contato direto</p>
+        <a href="mailto:projetoaroko@gmail.com"
+           class="text-white/80 hover:text-[#d83a22] transition-colors underline underline-offset-4" style="font-size:13px;">
+          projetoaroko@gmail.com
+        </a>
+      </div>
+
+    </div>
+    <div class="max-w-[1200px] mx-auto px-6 md:px-8 mt-7 pt-5" style="border-top:1px solid rgba(255,255,255,.08);">
+      <p class="mono text-white/25 uppercase" style="font-size:9px;letter-spacing:.16em;">© 2026 ÀROKÒ. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+
+  <script>
+    // Empresa field
+    document.getElementById('interest').addEventListener('change', function () {
+      document.getElementById('empresa-field').classList.toggle('hidden', this.value !== 'marca');
+    });
+
+    // Form validation
+    document.getElementById('interest-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      let valid = true;
+
+      const show = id => document.getElementById(id).classList.remove('hidden');
+      const hide = id => document.getElementById(id).classList.add('hidden');
+      ['err-nome','err-email','err-whatsapp','err-motivo','err-termos'].forEach(hide);
+
+      const name  = document.getElementById('name');
+      const email = document.getElementById('email');
+      const phone = document.getElementById('phone');
+      const mot   = document.getElementById('interest');
+      const tE    = document.getElementById('accept-email');
+      const tW    = document.getElementById('accept-whatsapp');
+
+      if (!name.value.trim())                               { show('err-nome');     valid = false; }
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) { show('err-email');    valid = false; }
+      if (!phone.value.trim())                              { show('err-whatsapp'); valid = false; }
+      if (!mot.value)                                       { show('err-motivo');   valid = false; }
+      if (!tE.checked && !tW.checked)                       { show('err-termos');   valid = false; }
+
+      if (!valid) return;
+
+      const btn = document.getElementById('submit-btn');
+      const msg = document.getElementById('form-message');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+
+      setTimeout(() => {
+        this.reset();
+        document.getElementById('empresa-field').classList.add('hidden');
+        msg.textContent = 'Cadastro recebido. Em breve você receberá nossas novidades.';
+        btn.disabled = false;
+        btn.textContent = 'Quero receber as novidades em primeira mão';
+        setTimeout(() => { msg.textContent = ''; }, 4000);
+      }, 600);
+    });
+  </script>
+
+</body>
+</html>
