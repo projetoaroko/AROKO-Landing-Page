@@ -17,6 +17,8 @@ export function DesignerCard({ name, image, bio, instagram, instagramLink, delay
     }
   };
 
+  const showLock = name !== 'LUSTOSA' && name !== 'KRIAÇÃ1';
+
   return (
     <div
       className="designer-card"
@@ -51,7 +53,7 @@ export function DesignerCard({ name, image, bio, instagram, instagramLink, delay
               'repeating-linear-gradient(90deg, #D9D4CC 0, #D9D4CC 4px, transparent 4px, transparent 8px)',
           }}
         />
-        <Lock size={13} strokeWidth={2.5} className="text-[#b0a99f] flex-shrink-0" />
+        {showLock && <Lock size={13} strokeWidth={2.5} className="text-[#b0a99f] flex-shrink-0" />}
       </div>
       {bio && (
         <div className="mt-3">
