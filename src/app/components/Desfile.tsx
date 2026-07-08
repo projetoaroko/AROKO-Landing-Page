@@ -3,12 +3,18 @@ import { DesignerCard } from './DesignerCard';
 export function Desfile() {
   const designers = [
     {
-      name: 'Estilista A',
-      image: '/aroko-passarela-modelos-costas-abraco.jpg',
+      name: 'LUSTOSA',
+      image: '/LUSTOSA.jpg',
+      bio: 'Crochê, ancestralidade e imaginação se encontram nas criações da Lustosa. "Você imagina. A Lustosa cria.',
+      instagram: '@lustosa.cria',
+      instagramLink: 'https://www.instagram.com/p/DaGa1cSRJ4c/',
     },
     {
-      name: 'Estilista B',
-      image: '/aroko-croquis-ilustracao-colecao.jpg',
+      name: 'KRIAÇÃ1',
+      image: '/KRIAÇA1.webp',
+      bio: 'Estamparia autoral soteropolitana unindo moda, cultura e comunicação em textos visuais.',
+      instagram: '@kriassaum',
+      instagramLink: 'https://instagram.com/kriassaum',
     },
     {
       name: 'Estilista C',
@@ -49,6 +55,9 @@ export function Desfile() {
               <DesignerCard
                 name={designer.name}
                 image={designer.image}
+                bio={designer.bio}
+                instagram={designer.instagram}
+                instagramLink={designer.instagramLink}
                 delay={idx * 0.1}
               />
             </div>
