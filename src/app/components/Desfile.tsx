@@ -14,7 +14,7 @@ export function Desfile() {
       image: '/KRIAÇA1.webp',
       bio: 'Estamparia autoral soteropolitana unindo moda, cultura e comunicação em textos visuais.',
       instagram: '@kriassaum',
-      instagramLink: 'https://instagram.com/kriassaum',
+      instagramLink: 'https://www.instagram.com/p/DagwiwXxFHp/',
     },
     {
       name: 'Estilista C',
