@@ -17,8 +17,11 @@ export function Desfile() {
       instagramLink: 'https://www.instagram.com/p/DagwiwXxFHp/',
     },
     {
-      name: 'Estilista C',
-      image: '/aroko-passarela-detalhe-terno-branco.jpg',
+      name: 'RONDINA',
+      image: '/RONDINA.jpg',
+      bio: 'Entre memórias baianas e alucinações criativas, a RONDINA cria peças sobre identidade, conforto e liberdade.',
+      instagram: '@rondiina_',
+      instagramLink: 'https://www.instagram.com/rondiina_',
     },
   ];
 
