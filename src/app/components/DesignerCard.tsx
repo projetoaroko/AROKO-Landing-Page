@@ -17,7 +17,7 @@ export function DesignerCard({ name, image, bio, instagram, instagramLink, delay
     }
   };
 
-  const showLock = name !== 'LUSTOSA' && name !== 'KRIAÇÃ1';
+  const showLock = name !== 'LUSTOSA' && name !== 'KRIAÇÃ1' && name !== 'RONDINA';
 
   return (
     <div
