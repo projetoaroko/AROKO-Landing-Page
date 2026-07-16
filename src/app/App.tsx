@@ -8,6 +8,7 @@ import { ContactForm } from './components/ContactForm';
 import { Idealizadora } from './components/Idealizadora';
 import { Apoiadores } from './components/Apoiadores';
 import { Footer } from './components/Footer';
+import { FloatingButton } from './components/FloatingButton';
 import { useScrollReveal } from './hooks/useScrollReveal';
 
 export default function App() {
@@ -17,6 +18,7 @@ export default function App() {
     <div className="w-full">
       <Navbar />
       <TicketWidget />
+      <FloatingButton />
       <main>
         <Hero />
         <Ticker />
