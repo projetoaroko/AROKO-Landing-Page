@@ -6,6 +6,7 @@ import { TicketWidget } from './components/TicketWidget';
 import { Desfile } from './components/Desfile';
 import { ContactForm } from './components/ContactForm';
 import { Idealizadora } from './components/Idealizadora';
+import { MuralApoiadores } from './components/MuralApoiadores';
 import { Apoiadores } from './components/Apoiadores';
 import { Footer } from './components/Footer';
 import { FloatingButton } from './components/FloatingButton';
@@ -26,6 +27,7 @@ export default function App() {
         <Desfile />
         <ContactForm />
         <Idealizadora />
+        <MuralApoiadores />
         <Apoiadores />
       </main>
       <Footer />
