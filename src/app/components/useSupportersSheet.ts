@@ -20,6 +20,33 @@ const TIER_ORDER: Record<string, number> = {
 };
 
 /**
+ * Remove acentos e normaliza para minúsculas/trim, para comparação tolerante
+ * (ex.: "osan", "Ọsàn ", "OSAN" devem todos bater com o mesmo tier).
+ */
+function normalizeKey(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "") // remove acentos
+    .trim()
+    .toLowerCase();
+}
+
+// Mapa de qualquer variação plausível de escrita -> tier canônico usado no app
+const TIER_ALIASES: Record<string, SupporterTier> = {
+  "owo eyo": "Owo Eyo",
+  "owoeyo": "Owo Eyo",
+  "osan": "Ọsàn",
+  "o san": "Ọsàn",
+  "pako": "Pákò",
+  "pak o": "Pákò",
+};
+
+function resolveTier(raw: string): SupporterTier | null {
+  const key = normalizeKey(raw);
+  return TIER_ALIASES[key] ?? null;
+}
+
+/**
  * Faz parse simples de uma linha CSV, respeitando aspas (para vírgulas
  * dentro de mensagens, por exemplo).
  */
@@ -66,9 +93,18 @@ function parseCsv(text: string): Supporter[] {
     .map((line) => {
       const cols = parseCsvLine(line);
       const nome = cols[idxNome]?.trim();
-      const tier = cols[idxTier]?.trim() as SupporterTier;
+      const tierRaw = cols[idxTier]?.trim();
+      const tier = tierRaw ? resolveTier(tierRaw) : null;
 
-      if (!nome || !tier) return null;
+      if (!nome) return null;
+
+      if (!tier) {
+        console.warn(
+          `[useSupportersSheet] Tier não reconhecido para "${nome}": "${tierRaw}". ` +
+            `Linha ignorada. Valores aceitos: Owo Eyo, Ọsàn, Pákò (com variações de acento/maiúscula).`
+        );
+        return null;
+      }
 
       return {
         nome,
