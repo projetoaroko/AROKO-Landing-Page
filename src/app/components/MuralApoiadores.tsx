@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ArrowDown, ChevronRight } from "lucide-react";
 import { useSupportersSheet, Supporter, SupporterTier } from "./useSupportersSheet";
 
-// ─── CONFIG ──────────────────────────────────────────────────────────────────
+// ─── CONFIG ───────────────────────────────────────────────────────────[...]
 
 // Valor de referência de cada cota (Benfeitoria) — usado só para estimar o
 // total arrecadado a partir da contagem de apoiadores por tier.
@@ -14,7 +14,7 @@ const TIER_VALUE: Record<SupporterTier, number> = {
   "Pákò": 30,
 };
 
-// ─── HELPERS ─────────────────────────────────────────────────────────────────
+// ─── HELPERS ──────────────────────────────────────────────────────────�[...]
 
 function formatCurrency(v: number) {
   return new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(v);
@@ -55,7 +55,7 @@ function useCountUp(target: number, duration = 1800) {
   return { count, ref };
 }
 
-// ─── SYMBOL ──────────────────────────────────────────────────────────────────
+// ─── SYMBOL ──────────────────────────────────────────────────────────��[...]
 
 function SymbolOwoEyo() {
   return (
@@ -71,16 +71,8 @@ function SymbolOwoEyo() {
 
 function MuralIntro({ supporters, loading }: { supporters: Supporter[]; loading: boolean }) {
   const totalApoiadores = supporters.length;
-  const totalEstimado = supporters.reduce((sum, s) => sum + (TIER_VALUE[s.tier] ?? 0), 0);
-
-  const ultimaData = supporters
-    .map((s) => s.data)
-    .filter(Boolean)
-    .sort()
-    .at(-1);
 
   const { count: countA, ref: refA } = useCountUp(totalApoiadores, 1400);
-  const { count: countV } = useCountUp(totalEstimado, 1800);
 
   return (
     <div className="relative w-full py-24 md:py-36 flex flex-col items-center justify-center overflow-hidden">
@@ -121,8 +113,6 @@ function MuralIntro({ supporters, loading }: { supporters: Supporter[]; loading:
         <div ref={refA as React.RefObject<HTMLDivElement>} className="flex items-center justify-center gap-8 md:gap-16 mb-12 flex-wrap">
           {[
             { label: "apoiadores", value: loading ? "—" : `${countA}` },
-            { label: "arrecadados (estimado)", value: loading ? "—" : formatCurrency(countV) },
-            { label: "atualizado em", value: formatDateBR(ultimaData) },
           ].map((s) => (
             <div key={s.label} className="text-center">
               <div
@@ -147,7 +137,7 @@ function MuralIntro({ supporters, loading }: { supporters: Supporter[]; loading:
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.3 }}
           href="#owoEyo"
-          className="inline-flex items-center gap-2 border border-[#F3F2F1] border-opacity-30 text-[#F3F2F1] hover:bg-[#D83A22] hover:border-[#D83A22] transition-all duration-300 px-8 py-4 uppercase"
+          className="inline-flex items-center gap-2 border border-[#F3F2F1] border-opacity-30 text-[#F3F2F1] hover:bg-[#D83A22] hover:border-[#D83A22] transition-all duration-300 px-8 py-4 upperc[...]"
           style={{ fontFamily: "Space Grotesk, sans-serif", fontSize: "11px", letterSpacing: ".2em" }}
         >
           Conheça os apoiadores
@@ -158,7 +148,7 @@ function MuralIntro({ supporters, loading }: { supporters: Supporter[]; loading:
   );
 }
 
-// ─── OWO EYO ─────────────────────────────────────────────────────────────────
+// ─── OWO EYO ──────────────────────────────────────────────────────────[...]
 
 function OwoEyoSection({ supporters }: { supporters: Supporter[] }) {
   if (supporters.length === 0) return null;
@@ -227,7 +217,7 @@ function OwoEyoSection({ supporters }: { supporters: Supporter[] }) {
   );
 }
 
-// ─── ỌSÀN ────────────────────────────────────────────────────────────────────
+// ─── ỌSÀN ──────────────────────────────────────────────────────────[...]
 
 function OsanSection({ supporters }: { supporters: Supporter[] }) {
   if (supporters.length === 0) return null;
@@ -250,7 +240,7 @@ function OsanSection({ supporters }: { supporters: Supporter[] }) {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, ease: [0.2, 0.65, 0.2, 1] }}
-            className="font-black uppercase text-[#F3F2F1] mb-4"
+            className="font-black uppercase text-[#F3F2F1] mb-6"
             style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(3rem, 8vw, 7rem)", letterSpacing: "-.01em", lineHeight: 0.9 }}
           >
             ỌSÀN
@@ -271,8 +261,8 @@ function OsanSection({ supporters }: { supporters: Supporter[] }) {
           {supporters.map((p, i) => (
             <motion.div
               key={`${p.nome}-${i}`}
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: Math.min(i * 0.05, 0.8) }}
               className="bg-[#1B1B1B] px-6 py-7 hover:bg-[#222] transition-colors duration-200"
@@ -390,7 +380,7 @@ function PakoSection({ supporters }: { supporters: Supporter[] }) {
   );
 }
 
-// ─── ENCERRAMENTO ────────────────────────────────────────────────────────────
+// ─── ENCERRAMENTO ────────────────────────────────────────────────────────�[...]
 
 function Encerramento() {
   return (
@@ -404,16 +394,6 @@ function Encerramento() {
             transition={{ duration: 0.8 }}
             className="origin-left h-px bg-[#D83A22] mb-12 w-24"
           />
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 1, ease: [0.2, 0.65, 0.2, 1] }}
-            className="text-[#F3F2F1] font-black uppercase leading-tight mb-10"
-            style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(2rem, 6vw, 5rem)", letterSpacing: "-.01em", lineHeight: 0.92 }}
-          >
-            ÀROKÒ existe porque muitas pessoas decidiram sustentar uma mesma mensagem.
-          </motion.p>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
