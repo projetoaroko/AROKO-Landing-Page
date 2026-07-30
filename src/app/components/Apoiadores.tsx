@@ -107,7 +107,11 @@ export function Apoiadores() {
                 key={item.name}
                 className="brand-placeholder py-8 px-6 flex items-center justify-center"
               >
-                <img src={item.src} alt={item.alt} className="w-full max-w-[220px] object-contain h-auto" />
+                <img
+                  src={item.src}
+                  alt={item.alt}
+                  className={item.name === 'INSTITUTO-EMBELEZZE' ? 'max-h-[60px] object-contain' : 'w-full max-w-[220px] object-contain h-auto'}
+                />
               </div>
             ))}
           </div>
