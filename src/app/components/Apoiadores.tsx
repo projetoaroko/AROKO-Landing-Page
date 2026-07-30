@@ -7,17 +7,19 @@ export function Apoiadores() {
     },
   ];
 
+  // Coloquei as três logos que devem ficar na mesma linha primeiro e na ordem desejada
   const apoioInstitucional = [
-    { name: 'LOGO RP', src: '/LOGO RP.png', alt: 'RP UNEB' },
-    { name: 'LOGO UNEB', src: '/LOGO UNEB.png', alt: 'UNEB' },
     { name: 'ESPAÇO-CULTURAL-DA-BARROQUINHA', src: '/ESPAÇO-CULTURAL-DA-BARROQUINHA.png', alt: 'Espaço Cultural da Barroquinha' },
     { name: 'FUNDACAO-GREGORIO-DE-MATTOS', src: '/FUNDACAO-GREGORIO-DE-MATTOS.png', alt: 'Fundação Gregório de Mattos' },
     { name: 'SECTUR-PREF', src: '/SECTUR-PREF.png', alt: 'SECTUR Prefeitura' },
+    { name: 'LOGO RP', src: '/LOGO RP.png', alt: 'RP UNEB' },
+    { name: 'LOGO UNEB', src: '/LOGO UNEB.png', alt: 'UNEB' },
   ];
 
   const parceiros = [
     { name: 'VRY', src: '/VRY LOGO.png', alt: 'Vry Company' },
-    { name: 'TAVARES SILK', src: '/TAVARES SILK.jpg', alt: 'Tavares Silk' },
+    { name: 'TAVARES SILK', src: '/TAVARES-SILK.png', alt: 'Tavares Silk' },
+    { name: 'DON-CREAM', src: '/DON-CREAM.png', alt: 'Don Cream' },
     { name: 'INSTITUTO-EMBELEZZE', src: '/INSTITUTO-EMBELEZZE.webp', alt: 'Instituto Embellezze' },
   ];
 
