@@ -58,7 +58,7 @@ export function Hero() {
                 letterSpacing: '.06em',
               }}
             >
-              MOSTRA DE MODA AFRO-SOTEROPOLITANA
+              NOSSA PASSARELA É UM MANIFESTO VIVO
             </p>
           </div>
         </div>
