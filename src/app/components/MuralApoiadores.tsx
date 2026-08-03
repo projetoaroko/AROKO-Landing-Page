@@ -14,7 +14,7 @@ const TIER_VALUE: Record<SupporterTier, number> = {
   "Pákò": 30,
 };
 
-// ─── HELPERS ──────────────────────────────────────────────────────────�[...]
+// ─── HELPERS ──────────────────────────────────────────────────────────
 
 function formatCurrency(v: number) {
   return new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" }).format(v);
@@ -55,7 +55,7 @@ function useCountUp(target: number, duration = 1800) {
   return { count, ref };
 }
 
-// ─── SYMBOL ──────────────────────────────────────────────────────────��[...]
+// ─── SYMBOL ──────────────────────────────────────────────────────────
 
 function SymbolOwoEyo() {
   return (
@@ -107,7 +107,7 @@ function MuralIntro({ supporters, loading }: { supporters: Supporter[]; loading:
           className="text-[#F3F2F1] max-w-2xl mx-auto mb-12 leading-relaxed"
           style={{ fontFamily: "Epilogue, sans-serif", fontSize: "clamp(14px, 1.8vw, 18px)", opacity: 0.8 }}
         >
-          Cada nome registrado aqui ajudou a transformar uma pesquisa acadêmica em uma experiência coletiva de moda, cultura e comunicação afro-soteropolitana.
+          Cada nome registrado aqui ajudou a experiência coletiva de moda, cultura e comunicação baiana.
         </motion.p>
 
         <div ref={refA as React.RefObject<HTMLDivElement>} className="flex items-center justify-center gap-8 md:gap-16 mb-12 flex-wrap">
@@ -148,7 +148,7 @@ function MuralIntro({ supporters, loading }: { supporters: Supporter[]; loading:
   );
 }
 
-// ─── OWO EYO ──────────────────────────────────────────────────────────[...]
+// ─── OWO EYO ──────────────────────────────────────────────────────────
 
 function OwoEyoSection({ supporters }: { supporters: Supporter[] }) {
   if (supporters.length === 0) return null;
@@ -217,7 +217,7 @@ function OwoEyoSection({ supporters }: { supporters: Supporter[] }) {
   );
 }
 
-// ─── ỌSÀN ──────────────────────────────────────────────────────────[...]
+// ─── ỌSÀN ──────────────────────────────────────────────────────────
 
 function OsanSection({ supporters }: { supporters: Supporter[] }) {
   if (supporters.length === 0) return null;
@@ -380,7 +380,7 @@ function PakoSection({ supporters }: { supporters: Supporter[] }) {
   );
 }
 
-// ─── ENCERRAMENTO ────────────────────────────────────────────────────────�[...]
+// ─── ENCERRAMENTO ────────────────────────────────────────────────────────
 
 function Encerramento() {
   return (
@@ -402,7 +402,7 @@ function Encerramento() {
             className="text-[#F3F2F1] leading-relaxed mb-14"
             style={{ fontFamily: "Epilogue, sans-serif", fontSize: "16px", opacity: 0.65, maxWidth: "560px" }}
           >
-            A cada contribuição, fortalecemos estilistas negros, cultura afro-brasileira e novas formas de comunicar através da moda.
+            A cada contribuição, fortalecemos estilistas baianos, cultura baiana e novas formas de comunicar através da moda.
           </motion.p>
 
           <motion.div
