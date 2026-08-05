@@ -1,6 +1,6 @@
 export function Ticker() {
   const text =
-    'SALVADOR · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 · SALVADOR · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 · SALVADOR · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 · SALVADOR · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 · ';
+    'ESPACO CULTURAL DA BARROQUINHA · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 · ESPACO CULTURAL DA BARROQUINHA · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 · ESPACO CULTURAL DA BARROQUINHA · MODA · DANÇA · DIÁLOGO · 20 AGO 2026 · ';
 
   return (
     <div className="overflow-hidden whitespace-nowrap bg-[#d83a22] py-[11px]">
