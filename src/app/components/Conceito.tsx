@@ -34,21 +34,10 @@ export function Conceito() {
           style={{ fontSize: '14px' }}
         >
           <p data-reveal="left">
-            Na tradição Yorùbá, ÀROKÒ é um sistema de comunicação não verbal onde
-            objetos e arranjos transmitem mensagens, emoções e diretrizes. Nós
-            trouxemos essa tecnologia ancestral para o agora. Na nossa passarela,
-            o vestuário, os corpos e os movimentos assumem esse papel de
-            comunicação. Eles funcionam como signos intencionais da nossa
-            identidade, da nossa ancestralidade e do nosso território
-            afro-soteropolitano.
+            Na tradição Yorùbá, ÀROKÒ é um sistema de comunicação não verbal em que objetos e arranjos transmitem mensagens, emoções e diretrizes. Trouxemos essa tecnologia ancestral para o presente. Na nossa passarela, o vestuário, os corpos e os movimentos assumem esse papel de comunicação, funcionando como signos intencionais de identidade, ancestralidade, pertencimento e território.
           </p>
           <p data-reveal="right">
-            A lógica do mercado tradicional historicamente tenta nos apagar. O
-            ÀROKÒ rompe com essa objetificação histórica. Nós garantimos que os
-            criadores pretos locais sejam os protagonistas absolutos das suas
-            próprias narrativas. Conectamos a herança afro-diaspórica de Salvador
-            com o design contemporâneo para proteger e perpetuar a memória da
-            Bahia.
+            O ÀROKÒ nasce em Salvador e parte da potência criativa produzida na Bahia. A mostra coloca criadores baianos no centro de suas próprias narrativas, valorizando repertórios, vivências e referências construídas a partir deste território.
           </p>
         </div>
 
@@ -60,7 +49,7 @@ export function Conceito() {
             letterSpacing: '.12em',
           }}
         >
-          A nossa passarela se converte em um manifesto vivo.
+          Mais do que apresentar coleções, buscamos evidenciar uma moda que carrega os códigos culturais da Bahia e traduz, por meio do design contemporâneo, diferentes formas de viver, criar e pertencer a Salvador. Assim, o ÀROKÒ fortalece a produção autoral local e contribui para preservar, transformar e projetar as narrativas que fazem parte da memória e da identidade baiana.
         </p>
       </div>
     </section>
