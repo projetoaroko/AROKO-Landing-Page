@@ -78,7 +78,7 @@ export function Hero() {
               className="text-[#d83a22]"
               style={{ fontSize: 'clamp(18px,3vw,32px)' }}
             >
-              Em Salvador
+              No espaço Cultural da Barroquinha
             </span>
           </p>
         </div>

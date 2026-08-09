@@ -45,7 +45,7 @@ export function Conceito() {
           <p data-reveal="right">
             A lógica do mercado tradicional historicamente tenta nos apagar. O
             ÀROKÒ rompe com essa objetificação histórica. Nós garantimos que os
-            criadores negros locais sejam os protagonistas absolutos das suas
+            criadores pretos locais sejam os protagonistas absolutos das suas
             próprias narrativas. Conectamos a herança afro-diaspórica de Salvador
             com o design contemporâneo para proteger e perpetuar a memória da
             Bahia.
