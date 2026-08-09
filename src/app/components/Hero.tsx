@@ -63,7 +63,7 @@ export function Hero() {
           </div>
         </div>
 
-        <div className="text-right" data-reveal="up">
+        <div className="text-left" data-reveal="up">
           <p
             className="font-black text-white uppercase"
             style={{
