@@ -2,7 +2,7 @@ export function Apoiadores() {
   const producao = [
     {
       name: 'CA PRODUÇÕES ARTISTICAS',
-      src: '/CA PRODUÇÕES ARTISTICAS - PRETA(2).png',
+      src: '/CA PRODUÇÕES ARTISTICAS - PRETA(2).png',
       alt: 'CA Produções Artísticas',
     },
   ];
@@ -21,6 +21,7 @@ export function Apoiadores() {
     { name: 'TAVARES SILK', src: '/TAVARES-SILK.png', alt: 'Tavares Silk' },
     { name: 'DON-CREAM', src: '/DON-CREAM.png', alt: 'Don Cream' },
     { name: 'INSTITUTO-EMBELEZZE', src: '/INSTITUTO-EMBELEZZE.webp', alt: 'Instituto Embellezze' },
+    { name: 'ARMARINHO-SUZI', src: '/ARMARINHO_SUZI.png', alt: 'Armarinho Suzi' },
   ];
 
   return (
