@@ -42,12 +42,9 @@ export function Conceito() {
         </div>
 
         <p
-          className="font-extrabold uppercase text-white mt-16"
+          className="text-left leading-7 text-[#C9C3BB] mt-8"
           data-reveal="up"
-          style={{
-            fontSize: 'clamp(1rem,2vw,1.5rem)',
-            letterSpacing: '.12em',
-          }}
+          style={{ fontSize: '14px' }}
         >
           Mais do que apresentar coleções, buscamos evidenciar uma moda que carrega os códigos culturais da Bahia e traduz, por meio do design contemporâneo, diferentes formas de viver, criar e pertencer a Salvador. Assim, o ÀROKÒ fortalece a produção autoral local e contribui para preservar, transformar e projetar as narrativas que fazem parte da memória e da identidade baiana.
         </p>
